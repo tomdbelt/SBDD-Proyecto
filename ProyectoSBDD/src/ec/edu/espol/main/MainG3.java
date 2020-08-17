@@ -14,9 +14,10 @@ import javafx.stage.Stage;
  *
  * @author TBeltran
  */
-public class Main extends Application {
-    static Scene mainScene;
-    static PrincipalView mainView;
+public class MainG3 extends Application {
+    public static Scene mainScene;
+    public static Stage mainStage;
+    public static PrincipalView mainView;
  
     public static void main(String[] args) {
         launch(args);
@@ -24,11 +25,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        mainStage = primaryStage;
         mainView = new PrincipalView();
-        mainScene = new Scene(mainView.getRoot(), 400, 400);
-        primaryStage.setScene(mainScene);
-        primaryStage.setTitle("Inicio");
-        primaryStage.show();
+        mainScene = new Scene(mainView.getRoot(), 400, 400);      
+        mainStage.setScene(mainScene);
+        mainStage.show();
     }
     
 }
