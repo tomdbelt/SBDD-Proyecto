@@ -27,7 +27,7 @@ public class MainG3 extends Application {
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
         mainView = new PrincipalView();
-        mainScene = new Scene(mainView.getRoot(), 400, 400);      
+        mainScene = new Scene(mainView.getRoot(), 500, 500);      
         mainStage.setScene(mainScene);
         mainStage.show();
     }
