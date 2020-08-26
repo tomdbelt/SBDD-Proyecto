@@ -5,10 +5,14 @@
  */
 package ec.edu.espol.main;
 
+import ec.edu.espol.constants.CONSTANTES;
 import ec.edu.espol.views.PrincipalView;
 import javafx.application.Application;
+import static javafx.application.Application.setUserAgentStylesheet;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -27,8 +31,10 @@ public class MainG3 extends Application {
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
         mainView = new PrincipalView();
-        mainScene = new Scene(mainView.getRoot(), 500, 500);      
+        mainScene = new Scene(mainView.getRoot(), 700, 600);
+        setUserAgentStylesheet(CONSTANTES.RUTASTYLE);
         mainStage.setScene(mainScene);
+        mainStage.getIcons().add(new Image(CONSTANTES.RUTAICON));
         mainStage.show();
     }
     

@@ -5,9 +5,12 @@
  */
 package ec.edu.espol.views;
 
+import ec.edu.espol.constants.CONSTANTES;
 import ec.edu.espol.main.MainG3;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -21,11 +24,13 @@ public class PrincipalView implements PaneStructure{
     private Button bIngreso;
     private Button bEgreso;
     private Label titleView;
+    private ImageView iconSystem;
 
     public PrincipalView() {
         root = new BorderPane();
         createTopSection();
         createCenterSection();
+        //instanciarIDs();
     }
 
     public BorderPane getRoot() {
@@ -41,11 +46,13 @@ public class PrincipalView implements PaneStructure{
     
     @Override
     public void createCenterSection(){
+        iconSystem = new ImageView(new Image(CONSTANTES.RUTAICON, 275, 275, true, true));
+        
         bIngreso = new Button("Ingreso de Bodega");
         bEgreso = new Button("Egreso de Bodega");
-        VBox vButtons = new VBox();
-        vButtons.getChildren().addAll(bIngreso, bEgreso);
-        root.setCenter(vButtons);
+        VBox vCenter = new VBox();
+        vCenter.getChildren().addAll(iconSystem, bIngreso, bEgreso);
+        root.setCenter(vCenter);
         
         bIngreso.setOnMouseClicked(e->{
             MainG3.mainScene.setRoot(new IngresoView().getRootIngreso());
@@ -59,5 +66,9 @@ public class PrincipalView implements PaneStructure{
     @Override
     public void createBottomSection() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private void instanciarIDs(){
+        iconSystem.setId("icon");
     }
 }

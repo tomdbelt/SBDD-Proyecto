@@ -44,6 +44,7 @@ public class EgresoView implements PaneStructure{
         createTopSection();
         createCenterSection();
         createBottomSection();
+        instanciarIDs();
     }
     
     public BorderPane getRootEgreso() {
@@ -108,5 +109,13 @@ public class EgresoView implements PaneStructure{
         });
     }
     
+    private void instanciarIDs(){
+        lFarm.setId("lblForm");
+        lBod.setId("lblForm");
+        lMed.setId("lblForm");
+        lCant.setId("lblForm");
+        lFSolicitud.setId("lblForm");
+        lFEgreso.setId("lblForm");
+    }
     
 }

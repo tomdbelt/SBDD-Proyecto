@@ -44,6 +44,7 @@ public class IngresoView implements PaneStructure{
         createTopSection();
         createCenterSection();
         createBottomSection();
+        instanciarIDs();
     }
     
     public BorderPane getRootIngreso() {
@@ -71,6 +72,7 @@ public class IngresoView implements PaneStructure{
         txtMed = new TextField();
         txtCant = new TextField();
         txtJust = new TextArea();
+        txtJust.setWrapText(true);
         txtFSolicitud = new DatePicker();
         txtFIngreso = new DatePicker();
         
@@ -106,5 +108,15 @@ public class IngresoView implements PaneStructure{
         bVolver.setOnMouseClicked(e->{
             MainG3.mainScene.setRoot(new PrincipalView().getRoot());
         });
+    }
+    
+    private void instanciarIDs(){
+        lBod.setId("lblForm");
+        lMed.setId("lblForm");
+        lCant.setId("lblForm");
+        lJust.setId("lblForm");
+        lFSolicitud.setId("lblForm");
+        lFIngreso.setId("lblForm");
+        txtJust.setId("txtJust");
     }
 }
