@@ -20,7 +20,6 @@ VBox{
 
 HBox{
     -fx-alignment: center;
-    -fx-padding: 20;
     -fx-spacing: 20;
 }
 
@@ -31,50 +30,40 @@ BorderPane{
 
 GridPane{
     -fx-alignment: center;
-    -fx-padding: 20;
     -fx-Vgap: 10;
     -fx-Hgap: 30;
 }
 
 Label{
-    -fx-text-alignment: center;
     -fx-font-weight: bold;
-    -fx-font-size: 35;
+    -fx-font-size: 15;
     -fx-text-fill: #4EBABA;
 }
 
+#lblTitle{
+    -fx-text-alignment: center;
+    -fx-font-size: 35;
+}
+
 #lblForm{
+    -fx-text-alignment: center;
     -fx-font-size: 20;
 }
 
-.text-field, .date-picker > .text-field{
+.text-field{
     -fx-alignment: center;
-    -fx-pref-width: 300;
+    -fx-pref-width: 250;
     -fx-padding: 5 5 5 5;
     -fx-border-radius: 5;
     -fx-background-color: #ADE3E3 , #DEF7F7 , #DEF7F7;
     -fx-border-color: #ADE3E3;
     -fx-alignment: top-left;
 }
-
-.text-field:hover, .date-picker:hover > .text-field, .date-picker > .text-field:hover{
-    -fx-background-color: #DEF7F7 , #DEF7F7 , white;
-}
-
-.text-field:focused, .date-picker:focused > .text-field, .date-picker > .text-field:focused{
-    -fx-background-color: #ADE3E3 , #DEF7F7 , white, white;
-    -fx-background-radius: 6.4, 4, 5, 3;
-    -fx-background-insets: -1.4, 0, 1, 2;
-    -fx-text-alignment: justify;
-    -fx-alignment: top-left;
-}
-
-
 
 #txtJust{
     -fx-alignment: center;
-    -fx-pref-width: 300;
-    -fx-pref-height: 350;
+    -fx-pref-width: 250;
+    -fx-pref-height: 100;
     -fx-padding: 5 5 5 5;
     -fx-border-radius: 5;
     -fx-background-color: #ADE3E3 , #DEF7F7 , #DEF7F7;
@@ -82,11 +71,11 @@ Label{
     -fx-alignment: top-left;
 }
 
-#txtJust:hover{
+.text-field:hover, #txtJust:hover{
     -fx-background-color: #DEF7F7 , #DEF7F7 , white;
 }
 
-#txtJust:focused{
+.text-field:focused, #txtJust:focused{
     -fx-background-color: #ADE3E3 , #DEF7F7 , white, white;
     -fx-background-radius: 6.4, 4, 5, 3;
     -fx-background-insets: -1.4, 0, 1, 2;
@@ -94,7 +83,7 @@ Label{
     -fx-alignment: top-left;
 }
 
-Button {
+#button {
     -fx-min-width: 150;
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
@@ -111,7 +100,7 @@ Button {
     -fx-text-alignment: center;
 }
 
-Button:hover{
+#button:hover{
     -fx-background-color:
             linear-gradient(from 0% 93% to 0% 100%, #2E9C9C 0%, #168C8C 100%),
             #2E9C9C,
@@ -119,7 +108,7 @@ Button:hover{
             radial-gradient(center 50% 50%, radius 100%, #4EBABA, #2E9C9C);
 }
 
-Button:pressed{
+#button:pressed{
     -fx-padding: 10 15 13 15;
     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
 }

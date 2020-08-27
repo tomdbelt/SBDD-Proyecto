@@ -29,6 +29,7 @@ public class EgresoView implements PaneStructure{
     private Label lCant;
     private Label lFSolicitud;
     private Label lFEgreso;
+    private Label lGroup;
     private TextField txtFarm;
     private TextField txtBod;
     private TextField txtMed;
@@ -54,8 +55,10 @@ public class EgresoView implements PaneStructure{
     @Override
     public void createTopSection(){
         titleView = new Label("EGRESO DE BODEGA");
+        HBox htitle = new HBox();
+        htitle.getChildren().add(titleView);
         MainG3.mainStage.setTitle("EGRESO DE BODEGA");
-        rootEgreso.setTop(titleView);
+        rootEgreso.setTop(htitle);
     }
 
     @Override
@@ -101,12 +104,17 @@ public class EgresoView implements PaneStructure{
 
     @Override
     public void createBottomSection() {
+        HBox hbottom = new HBox();
+        lGroup = new Label("Grupo 3 SBDD 2020-1T");
         bVolver = new Button("Volver");
-        rootEgreso.setBottom(bVolver);
+
+        hbottom.getChildren().addAll(bVolver, lGroup);
         
         bVolver.setOnMouseClicked(e->{
             MainG3.mainScene.setRoot(new PrincipalView().getRoot());
         });
+        
+        rootEgreso.setBottom(hbottom);
     }
     
     private void instanciarIDs(){
@@ -116,6 +124,11 @@ public class EgresoView implements PaneStructure{
         lCant.setId("lblForm");
         lFSolicitud.setId("lblForm");
         lFEgreso.setId("lblForm");
-    }
-    
+        
+        bLimpiar.setId("button");
+        bAceptar.setId("button");
+        bVolver.setId("button");
+        
+        titleView.setId("lblTitle");
+    }  
 }

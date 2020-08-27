@@ -32,7 +32,8 @@ public class MainG3 extends Application {
         mainStage = primaryStage;
         mainView = new PrincipalView();
         mainScene = new Scene(mainView.getRoot(), 700, 600);
-        setUserAgentStylesheet(CONSTANTES.RUTASTYLE);
+        //setUserAgentStylesheet(CONSTANTES.RUTASTYLE);
+        mainScene.getStylesheets().add(CONSTANTES.RUTASTYLE);
         mainStage.setScene(mainScene);
         mainStage.getIcons().add(new Image(CONSTANTES.RUTAICON));
         mainStage.show();

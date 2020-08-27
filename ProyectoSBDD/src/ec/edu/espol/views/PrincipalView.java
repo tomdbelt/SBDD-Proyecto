@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -30,7 +31,7 @@ public class PrincipalView implements PaneStructure{
         root = new BorderPane();
         createTopSection();
         createCenterSection();
-        //instanciarIDs();
+        instanciarIDs();
     }
 
     public BorderPane getRoot() {
@@ -40,8 +41,10 @@ public class PrincipalView implements PaneStructure{
     @Override
     public void createTopSection() {
         titleView = new Label("PROYECTO FINAL SBDD G3");
+        HBox htitle = new HBox();
+        htitle.getChildren().add(titleView);
         MainG3.mainStage.setTitle("PROYECTO FINAL SBDD G3");
-        root.setTop(titleView);
+        root.setTop(htitle);
     }
     
     @Override
@@ -69,6 +72,8 @@ public class PrincipalView implements PaneStructure{
     }
     
     private void instanciarIDs(){
-        iconSystem.setId("icon");
+        bIngreso.setId("button");
+        bEgreso.setId("button");
+        titleView.setId("lblTitle");
     }
 }

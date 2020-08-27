@@ -6,6 +6,7 @@
 package ec.edu.espol.views;
 
 import ec.edu.espol.main.MainG3;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -29,6 +30,7 @@ public class IngresoView implements PaneStructure{
     private Label lJust;
     private Label lFSolicitud;
     private Label lFIngreso;
+    private Label lGroup;
     private TextField txtBod;
     private TextField txtMed;
     private TextField txtCant;
@@ -54,8 +56,10 @@ public class IngresoView implements PaneStructure{
     @Override
     public void createTopSection(){
         titleView = new Label("INGRESO DE BODEGA");
+        HBox htitle = new HBox();
+        htitle.getChildren().add(titleView);
         MainG3.mainStage.setTitle("INGRESO DE BODEGA");
-        rootIngreso.setTop(titleView);
+        rootIngreso.setTop(htitle);
     }
 
     @Override
@@ -102,12 +106,18 @@ public class IngresoView implements PaneStructure{
 
     @Override
     public void createBottomSection() {
+        HBox hbottom = new HBox();
+        lGroup = new Label("Grupo 3 SBDD 2020-1T");
+        lGroup.setAlignment(Pos.CENTER_RIGHT);
         bVolver = new Button("Volver");
-        rootIngreso.setBottom(bVolver);
+        
+        hbottom.getChildren().addAll(bVolver, lGroup);
         
         bVolver.setOnMouseClicked(e->{
             MainG3.mainScene.setRoot(new PrincipalView().getRoot());
         });
+        
+        rootIngreso.setBottom(hbottom);
     }
     
     private void instanciarIDs(){
@@ -118,5 +128,11 @@ public class IngresoView implements PaneStructure{
         lFSolicitud.setId("lblForm");
         lFIngreso.setId("lblForm");
         txtJust.setId("txtJust");
+
+        bLimpiar.setId("button");
+        bAceptar.setId("button");
+        bVolver.setId("button");
+        
+        titleView.setId("lblTitle");
     }
 }
