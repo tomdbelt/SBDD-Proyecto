@@ -6,6 +6,8 @@
 package ec.edu.espol.views;
 
 import ec.edu.espol.main.MainG3;
+import ec.edu.espol.util.Conexion;
+import java.time.LocalDate;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -99,6 +101,20 @@ public class IngresoView implements PaneStructure{
         bLimpiar = new Button("Limpiar");
         bAceptar = new Button("Aceptar");
         hbuttons.getChildren().addAll(bLimpiar, bAceptar);
+        
+        bAceptar.setOnMouseClicked(e->{
+            Conexion.ingresoBodega(txtBod.getText(), txtMed.getText(), txtCant.getText(), txtJust.getText(), txtFSolicitud.getValue(), txtFIngreso.getValue());
+        });
+        
+        //String idBod, String idMed, String cant, String just, LocalDate fSolicitud, LocalDate fIngreso
+        bLimpiar.setOnMouseClicked(e->{
+            txtBod.setText("");
+            txtMed.setText("");
+            txtCant.setText("");
+            txtJust.setText("");
+            txtFSolicitud.setValue(null);
+            txtFIngreso.setValue(null);
+        });
         
         vcenter.getChildren().addAll(gp, hbuttons);
         rootIngreso.setCenter(vcenter);

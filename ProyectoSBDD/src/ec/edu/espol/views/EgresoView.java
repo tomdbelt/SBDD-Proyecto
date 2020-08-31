@@ -6,7 +6,7 @@
 package ec.edu.espol.views;
 
 import ec.edu.espol.main.MainG3;
-import java.time.LocalDate;
+import ec.edu.espol.util.Conexion;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -97,6 +97,20 @@ public class EgresoView implements PaneStructure{
         bLimpiar = new Button("Limpiar");
         bAceptar = new Button("Aceptar");
         hbuttons.getChildren().addAll(bLimpiar, bAceptar);
+        
+        //String idFarm, String idBod, String idMed, String cant, LocalDate fSolicitud, LocalDate fEgreso
+        bAceptar.setOnMouseClicked(e->{
+            Conexion.egresoBodega(txtFarm.getText(), txtBod.getText(), txtMed.getText(), txtCant.getText(), txtFSolicitud.getValue(), txtFEgreso.getValue());
+        });
+        
+        bLimpiar.setOnMouseClicked(e->{
+            txtFarm.setText("");
+            txtBod.setText("");
+            txtMed.setText("");
+            txtCant.setText("");
+            txtFSolicitud.setValue(null);
+            txtFEgreso.setValue(null);
+        });
         
         vcenter.getChildren().addAll(gp, hbuttons);
         rootEgreso.setCenter(vcenter);
