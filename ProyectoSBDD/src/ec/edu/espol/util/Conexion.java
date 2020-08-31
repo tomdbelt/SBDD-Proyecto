@@ -5,8 +5,11 @@
  */
 package ec.edu.espol.util;
 
+import ec.edu.espol.main.MainG3;
+import ec.edu.espol.views.AlertView;
 import java.sql.*;
 import java.time.LocalDate;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -37,10 +40,9 @@ public class Conexion {
             Date ding = new Date(fIngreso.getYear()-1900,fIngreso.getMonth().getValue()-1,fIngreso.getDayOfMonth());
             pst.setDate(6, ding);          
             pst.executeUpdate();
+            AlertView alertSuccess = new AlertView(MainG3.mainStage, Alert.AlertType.INFORMATION, "Registro ingresado exitosamente");
         }catch (Exception e){
-            System.out.println("error");
-            System.out.println(e.getMessage());
-            
+            AlertView alertError = new AlertView(MainG3.mainStage, Alert.AlertType.ERROR, "Ocurrió un error en el registro. Asegúrese de ingresar datos válidos");
         }
     }
     
@@ -57,9 +59,9 @@ public class Conexion {
             Date degre = new Date(fEgreso.getYear()-1900,fEgreso.getMonth().getValue()-1,fEgreso.getDayOfMonth());
             pst.setDate(6, degre);
             pst.executeUpdate();
+            AlertView alertSuccess = new AlertView(MainG3.mainStage, Alert.AlertType.INFORMATION, "Registro ingresado exitosamente");
         }catch (Exception e){
-            
-            System.out.println(e.getMessage());
+            AlertView alertError = new AlertView(MainG3.mainStage, Alert.AlertType.ERROR, "Ocurrió un error en el registro. Asegúrese de ingresar datos válidos");
         }
     }
 }
