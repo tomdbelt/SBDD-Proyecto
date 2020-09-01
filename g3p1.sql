@@ -791,8 +791,6 @@ end;
 DELIMITER ;
 
 -- INDEXES
-select c.nombre nombreCategoria, concat(p.nombre,' ',p.apell_pat,' ', apell_mat) cliente, count(df.id_factura) cantidadCompras, sum(m.precio*df.cantidad) totalCompras from factura f 
-inner join (detallefactura df, persona p, medicina m, categoria c)
-on (f.id_factura = df.id_factura and f.cedula_cliente = p.cedula and df.cod_med = m.codigo and m.codeCategoria = c.codeCategoria)
-group by c.codeCategoria, cliente;
-
+create index idx_nombre_apellido_pat_mat on Persona(nombre, apell_pat, apell_mat);
+create index idx_med_nombre on Medicina(nombre);
+create index idx_nomCategory on Categoria(nombre);
